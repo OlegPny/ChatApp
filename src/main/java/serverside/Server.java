@@ -1,4 +1,4 @@
-package clientside;
+package serverside;
 
 
 import java.io.IOException;
@@ -33,7 +33,7 @@ public class Server {
 
         while (scanner.hasNext()) {
             String newMessage = scanner.nextLine();
-            if (newMessage.trim().toLowerCase() == "exit") {
+            if (newMessage.trim().toLowerCase().equals("exit")) {
                 clientSocket.close();
                 serverSocket.close();
                 break;
