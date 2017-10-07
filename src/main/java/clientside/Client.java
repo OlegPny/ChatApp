@@ -34,4 +34,5 @@ public class Client {
         ClientWriteThread writeThread = new ClientWriteThread(writer, inputScanner);
 
     }
+
 }
