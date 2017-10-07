@@ -15,10 +15,10 @@ public class Client {
 
     public static void main(String[] args) throws IOException {
 
-        System.out.println("Попытка подключения к серверу");
-        Socket socket = new Socket();
+        System.out.println("Попытка подключения к серверу...");
 
-       socket.connect(new InetSocketAddress(SERVER_IP, SERVER_PORT));
+        Socket socket = new Socket();
+        socket.connect(new InetSocketAddress(SERVER_IP, SERVER_PORT));
 
         InputStream inputStream = socket.getInputStream();
         OutputStream outputStream = socket.getOutputStream();
@@ -27,20 +27,10 @@ public class Client {
         Scanner inputScanner = new Scanner(System.in);
         PrintWriter writer = new PrintWriter(outputStream);
 
-        ClientReadThread readThread = new ClientReadThread(scanner);
+        System.out.println("Соединение с сервером установлено.");
 
-//        label1:
-//        while (true) {
-//            String usrInput = inputScanner.nextLine();
-//            if (usrInput.trim().toLowerCase().equals("exit")) {
-//                writer.println(usrInput);
-//                writer.flush();
-//                socket.close();
-//                break label1;
-//            }
-//            writer.println(usrInput);
-//            writer.flush();
-//        }
-//        System.out.println("Чат закрыт");
+        ClientReadThread readThread = new ClientReadThread(scanner);
+        ClientWriteThread writeThread = new ClientWriteThread(writer, inputScanner);
+
     }
 }
