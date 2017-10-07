@@ -31,15 +31,7 @@ public class Server {
         Scanner scanner = new Scanner(inputStream);
         PrintWriter writer = new PrintWriter(outputStream);
 
-        while (scanner.hasNext()) {
-            String newMessage = scanner.nextLine();
-            if (newMessage.trim().toLowerCase().equals("exit")) {
-                clientSocket.close();
-                serverSocket.close();
-                break;
-            }
-            System.out.println(newMessage);
-        }
+        ServerReadThread readThread = new ServerReadThread(scanner);
 
 
 
