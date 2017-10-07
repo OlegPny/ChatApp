@@ -24,22 +24,23 @@ public class Client {
         OutputStream outputStream = socket.getOutputStream();
 
         Scanner scanner = new Scanner(inputStream);
+        Scanner inputScanner = new Scanner(System.in);
         PrintWriter writer = new PrintWriter(outputStream);
 
-        Scanner inputScanner = new Scanner(System.in);
+        ClientReadThread readThread = new ClientReadThread(scanner);
 
-        label1:
-        while (true) {
-            String usrInput = inputScanner.nextLine();
-            if (usrInput.trim().toLowerCase().equals("exit")) {
-                writer.println(usrInput);
-                writer.flush();
-                socket.close();
-                break label1;
-            }
-            writer.println(usrInput);
-            writer.flush();
-        }
-        System.out.println("Чат закрыт");
+//        label1:
+//        while (true) {
+//            String usrInput = inputScanner.nextLine();
+//            if (usrInput.trim().toLowerCase().equals("exit")) {
+//                writer.println(usrInput);
+//                writer.flush();
+//                socket.close();
+//                break label1;
+//            }
+//            writer.println(usrInput);
+//            writer.flush();
+//        }
+//        System.out.println("Чат закрыт");
     }
 }

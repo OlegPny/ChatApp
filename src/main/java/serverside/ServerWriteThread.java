@@ -19,7 +19,8 @@ public class ServerWriteThread implements Runnable {
         while (scanner.hasNext()) {
             String serverOutput = scanner.nextLine();
             System.out.println(String.format("Вы: %s", serverOutput));
-            writer.println(String.format("Вы: %s", serverOutput));
+            writer.println(String.format(serverOutput));
+            writer.flush();
             try {
                 TimeUnit.MICROSECONDS.sleep(200);
             } catch (InterruptedException e) {
