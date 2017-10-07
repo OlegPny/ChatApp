@@ -18,7 +18,6 @@ public class ClientWriteThread implements Runnable {
     public void run() {
         while (scanner.hasNext()) {
             String clientOutput = scanner.nextLine();
-            System.out.println(String.format("Вы: %s", clientOutput));
             writer.println(String.format(clientOutput));
             writer.flush();
             try {

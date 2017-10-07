@@ -15,6 +15,7 @@ public class Client {
 
     public static void main(String[] args) throws IOException {
 
+        System.out.println("Инициализация клиента");
         System.out.println("Попытка подключения к серверу...");
 
         Socket socket = new Socket();
@@ -27,7 +28,7 @@ public class Client {
         Scanner inputScanner = new Scanner(System.in);
         PrintWriter writer = new PrintWriter(outputStream);
 
-        System.out.println("Соединение с сервером установлено.");
+        System.out.println("Соединение с сервером установлено, вы можете писать сообщения.");
 
         ClientReadThread readThread = new ClientReadThread(scanner);
         ClientWriteThread writeThread = new ClientWriteThread(writer, inputScanner);

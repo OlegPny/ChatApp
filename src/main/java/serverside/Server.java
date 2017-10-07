@@ -16,11 +16,11 @@ public class Server {
 
     public static void main(String[] args) throws IOException {
 
-        System.out.println("Инициализация сервера");
+        System.out.println("Инициализация сервера...");
         ServerSocket serverSocket = new ServerSocket(SERVER_PORT);
         System.out.println("Сервер инициализирован. Ожидатся подключение клиента...");
         Socket clientSocket = serverSocket.accept();
-        System.out.println("Соединение с клиентом установлено");
+        System.out.println("Соединение с клиентом установлено, вы можете писать сообщения.");
 
 //        System.out.println("Введите ник и нажмите enter:");
 //        serverName = readUserName();
@@ -34,9 +34,6 @@ public class Server {
 
         ServerReadThread readThread = new ServerReadThread(scanner);
         ServerWriteThread writeThread = new ServerWriteThread(writer, userInput);
-
-
-
 
     }
 

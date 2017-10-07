@@ -18,7 +18,6 @@ public class ServerWriteThread implements Runnable {
     public void run() {
         while (scanner.hasNext()) {
             String serverOutput = scanner.nextLine();
-            System.out.println(String.format("Вы: %s", serverOutput));
             writer.println(String.format(serverOutput));
             writer.flush();
             try {
