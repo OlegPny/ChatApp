@@ -15,7 +15,7 @@ public class ServerReadThread implements Runnable {
     public void run() {
         while (scanner.hasNext()) {
             String clientInput = scanner.nextLine();
-            System.out.println(clientInput);
+            System.out.println(String.format("Cобеседник: %s", clientInput));
             try {
                 TimeUnit.MICROSECONDS.sleep(200);
             } catch (InterruptedException e) {

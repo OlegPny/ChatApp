@@ -18,20 +18,22 @@ public class Server {
 
         System.out.println("Инициализация сервера");
         ServerSocket serverSocket = new ServerSocket(SERVER_PORT);
-        System.out.println("Сервер инициализирован. Ожадется подключение клиента...");
+        System.out.println("Сервер инициализирован. Ожидатся подключение клиента...");
         Socket clientSocket = serverSocket.accept();
         System.out.println("Соединение с клиентом установлено");
 
-        System.out.println("Введите ник и нажмите enter:");
-        serverName = readUserName();
+//        System.out.println("Введите ник и нажмите enter:");
+//        serverName = readUserName();
 
         InputStream inputStream = clientSocket.getInputStream();
         OutputStream outputStream = clientSocket.getOutputStream();
 
         Scanner scanner = new Scanner(inputStream);
+        Scanner userInput = new Scanner(System.in);
         PrintWriter writer = new PrintWriter(outputStream);
 
         ServerReadThread readThread = new ServerReadThread(scanner);
+        ServerWriteThread writeThread = new ServerWriteThread(writer, userInput);
 
 
 
