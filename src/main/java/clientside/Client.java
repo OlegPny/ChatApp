@@ -15,7 +15,7 @@ public class Client {
 
     public static void main(String[] args) throws IOException {
 
-        System.out.println("Инициализация клиента");
+        System.out.println("Инициализация клиента...");
         System.out.println("Попытка подключения к серверу...");
 
         Socket socket = new Socket();
