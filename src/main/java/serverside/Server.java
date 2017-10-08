@@ -1,6 +1,8 @@
 package serverside;
 
 
+import util.WriterThread;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -25,11 +27,11 @@ public class Server {
         OutputStream outputStream = clientSocket.getOutputStream();
 
         Scanner scanner = new Scanner(inputStream);
-        Scanner userInput = new Scanner(System.in);
+        Scanner inputScanner = new Scanner(System.in);
         PrintWriter writer = new PrintWriter(outputStream);
 
         ServerReadThread readThread = new ServerReadThread(scanner);
-        ServerWriteThread writeThread = new ServerWriteThread(writer, userInput);
+        WriterThread writeThread = new WriterThread(inputScanner, writer);
     }
 
     public static String readUserName() {

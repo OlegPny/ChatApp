@@ -1,24 +1,24 @@
-package clientside;
+package util;
 
 import java.io.PrintWriter;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
-public class ClientWriteThread implements Runnable {
+public class WriterThread implements Runnable {
 
+    Scanner inputScanner;
     PrintWriter writer;
-    Scanner scanner;
 
-    public ClientWriteThread(PrintWriter writer, Scanner scanner) {
+    public WriterThread(Scanner inputScanner, PrintWriter writer) {
+        this.inputScanner = inputScanner;
         this.writer = writer;
-        this.scanner = scanner;
         new Thread(this).start();
     }
 
     public void run() {
-        while (scanner.hasNext()) {
-            String clientOutput = scanner.nextLine();
-            writer.println(String.format(clientOutput));
+        while (inputScanner.hasNext()) {
+            String serverOutput = inputScanner.nextLine();
+            writer.println(serverOutput);
             writer.flush();
             try {
                 TimeUnit.MICROSECONDS.sleep(200);
