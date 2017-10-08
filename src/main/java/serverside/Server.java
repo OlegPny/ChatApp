@@ -31,7 +31,7 @@ public class Server {
         Scanner inputScanner = new Scanner(System.in);
         PrintWriter writer = new PrintWriter(outputStream);
 
-        utils.ReaderThread readerThread = new utils.ReaderThread(scanner);
+        ReaderThread readerThread = new ReaderThread(scanner);
         WriterThread writeThread = new WriterThread(inputScanner, writer);
     }
 

@@ -5,7 +5,7 @@ import java.util.concurrent.TimeUnit;
 
 public class ReaderThread implements Runnable{
 
-    Scanner inMessageScanner;
+    private Scanner inMessageScanner;
 
     public ReaderThread(Scanner inMessageScanner) {
         this.inMessageScanner = inMessageScanner;

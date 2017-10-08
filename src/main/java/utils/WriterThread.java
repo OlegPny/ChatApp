@@ -6,8 +6,8 @@ import java.util.concurrent.TimeUnit;
 
 public class WriterThread implements Runnable {
 
-    Scanner inputScanner;
-    PrintWriter writer;
+    private Scanner inputScanner;
+    private PrintWriter writer;
 
     public WriterThread(Scanner inputScanner, PrintWriter writer) {
         this.inputScanner = inputScanner;
