@@ -1,6 +1,7 @@
 package clientside;
 
-import util.WriterThread;
+import utils.ReaderThread;
+import utils.WriterThread;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -32,7 +33,7 @@ public class Client {
 
         System.out.println("Соединение с сервером установлено, вы можете писать сообщения.");
 
-        ClientReadThread readThread = new ClientReadThread(scanner);
+        ReaderThread readerThread = new ReaderThread(scanner);
         WriterThread writeThread = new WriterThread(inputScanner, writer);
 
     }

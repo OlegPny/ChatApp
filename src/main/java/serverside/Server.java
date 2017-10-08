@@ -1,7 +1,7 @@
 package serverside;
 
-
-import util.WriterThread;
+import utils.WriterThread;
+import utils.ReaderThread;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -10,6 +10,7 @@ import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Scanner;
+
 
 public class Server {
 
@@ -30,7 +31,7 @@ public class Server {
         Scanner inputScanner = new Scanner(System.in);
         PrintWriter writer = new PrintWriter(outputStream);
 
-        ServerReadThread readThread = new ServerReadThread(scanner);
+        utils.ReaderThread readerThread = new utils.ReaderThread(scanner);
         WriterThread writeThread = new WriterThread(inputScanner, writer);
     }
 
